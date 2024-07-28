@@ -1,0 +1,21 @@
+<div class="container mt-4">
+  <h3 class="card-title mb-4">Customers Table (PORT 8081)</h3>
+  <table class="table">
+    <thead class="table-secondary">
+    <tr>
+      <th scope="col">CID</th>
+      <th scope="col">Fullname</th>
+      <th scope="col">Age</th>
+      <th scope="col">Level</th>
+    </tr>
+    </thead>
+    <tbody>
+    <tr *ngFor="let customer of customers">
+      <th scope="row">{{customer.cid}}</th>
+      <td>{{customer.fullname}}</td>
+      <td>{{customer.age}}</td>
+      <td>{{customer.level}}</td>
+    </tr>
+    </tbody>
+  </table>
+</div>

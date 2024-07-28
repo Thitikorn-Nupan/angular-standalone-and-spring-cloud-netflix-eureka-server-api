@@ -1,0 +1,23 @@
+<div class="container mt-4">
+ <h3 class="card-title mb-4">Robots Table (PORT 8082)</h3>
+  <table class="table">
+    <thead class="table-secondary">
+    <tr>
+      <th scope="col">RID</th>
+      <th scope="col">Codename</th>
+      <th scope="col">Release Date</th>
+      <th scope="col">Price</th>
+      <th scope="col">Status</th>
+    </tr>
+    </thead>
+    <tbody>
+    <tr *ngFor="let robot of robots">
+      <th scope="row">{{ robot.rid }}</th>
+      <td>{{ robot.codename }}</td>
+      <td>{{ robot.releaseDate }}</td>
+      <td>{{ robot.price }}</td>
+      <td>{{ robot.status }}</td>
+    </tr>
+    </tbody>
+  </table>
+</div>
