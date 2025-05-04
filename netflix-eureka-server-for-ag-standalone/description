@@ -1,1 +1,3 @@
 these modules are server you have to run with netflix-eureka-client-for-ag-standalone module !!!
+and you can't req any endpoint of microservice because it configs on server
+you can only req on netflix-eureka-client-for-ag-standalone module !!
