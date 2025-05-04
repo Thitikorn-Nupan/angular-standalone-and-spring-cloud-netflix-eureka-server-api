@@ -39,9 +39,7 @@ public class CustomersService implements ServiceRepository<Customer> {
         boolean check = customers
                 .stream()
                 .anyMatch(customer -> customer.getCid() != obj.getCid()); // *** if customer.getCid() != obj.getCid() will return false
-
-            // mean if [check == true] ? [if true returns customers.add(obj)] : [else returns false]
-            // return condition ? if valueA : else valueB;
+            // meaning if [check == true] ? [if true returns customers.add(obj)] : [else returns false]
         return check ? customers.add(obj) : false;
     }
 
@@ -49,10 +47,11 @@ public class CustomersService implements ServiceRepository<Customer> {
     public Boolean edit(Customer obj, Long pk) {
         Customer customer = customers
                 .stream()
-                .filter(customerOnList -> customerOnList.getCid() == pk).findFirst().orElse(null);
+                .filter(customerOnList -> customerOnList.getCid() == pk)
+                .findFirst()
+                .orElse(null);
         if (customer != null) {
             customers.remove(customer); // remove by obj
-            // System.out.println(customers);
             customer.setFullname(obj.getFullname());
             customer.setAge(obj.getAge());
             customer.setLevel(obj.getLevel());
@@ -66,14 +65,10 @@ public class CustomersService implements ServiceRepository<Customer> {
     public Boolean remove(Long pk) {
         Customer customer = customers
                 .stream()
-                .filter(customerOnList -> customerOnList.getCid() == pk).findFirst().orElse(null);
+                .filter(customerOnList -> customerOnList.getCid() == pk)
+                .findFirst()
+                .orElse(null);
         return customer != null ? customers.remove(customer) : false;
     }
 
-    /*public static void main(String[] args) {
-        CustomerService customerService = new CustomerService();
-        System.out.println(customerService.findAll());
-        System.out.println(customerService.edit(new Customer(0L,"Max Slider",(short)31,'B'),1L));
-        System.out.println(customerService.findAll());
-    }*/
 }

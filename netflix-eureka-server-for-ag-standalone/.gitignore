@@ -31,3 +31,6 @@ build/
 
 ### VS Code ###
 .vscode/
+info
+customers-microservice/src/main/resources/info/
+robots-microservice/src/main/resources/info/

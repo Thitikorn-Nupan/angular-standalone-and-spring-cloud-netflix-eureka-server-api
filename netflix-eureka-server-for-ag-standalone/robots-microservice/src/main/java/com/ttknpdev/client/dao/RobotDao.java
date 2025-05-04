@@ -48,6 +48,6 @@ public class RobotDao implements RobotService<Robot> {
         return robotRepository.findById(id).map(robot -> {
             robotRepository.delete(robot);
             return true;
-        }).orElseThrow();
+        }).orElse(false);
     }
 }
