@@ -1,5 +1,6 @@
 package com.ttknpdev.netflixeurekaclientforagstandalone.controllers;
 
+import com.ttknpdev.netflixeurekaclientforagstandalone.annotation.CommonRestAPI;
 import com.ttknpdev.netflixeurekaclientforagstandalone.entities.Robot;
 import com.ttknpdev.netflixeurekaclientforagstandalone.services.RobotResponseService;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -9,15 +10,19 @@ import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
 
+/**
+@CrossOrigin("http://localhost:4200") // allow cross origin
 @RestController
 @RequestMapping(value = RobotEndpoint.BASE_PREFIX_PATH)
-@CrossOrigin("http://localhost:4200") // allow cross origin
+*/
+@CommonRestAPI(path = RobotEndpoint.BASE_PREFIX_PATH,origins = "http://localhost:4200")
 public class RobotEndpoint {
     // follow prefix
     protected static final String BASE_PREFIX_PATH = "/api/robot";
-    // domain follow the name project on eureka server
-    protected static final String ADDRESS = "http://ROBOTS-MICROSERVICE"; // work as http://localhost:8081/<your prefix path>
-    private RobotResponseService robotResponseService;
+    // Domain follow the name project on eureka server
+    private static final String ADDRESS = "http://ROBOTS-MICROSERVICE"; // work as http://ROBOTS-MICROSERVICE/<your prefix path>
+    private final RobotResponseService robotResponseService;
+
     @Autowired
     public RobotEndpoint(RobotResponseService robotResponseService) {
         this.robotResponseService = robotResponseService;

@@ -1,5 +1,6 @@
 package com.ttknpdev.netflixeurekaclientforagstandalone.entities;
-/* For response from api */
+
+// For response from api
 public class Customer {
     private Long cid;
     private String fullname;

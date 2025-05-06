@@ -1,9 +1,10 @@
 package com.ttknpdev.netflixeurekaclientforagstandalone.entities;
-/* For response from Robot-microservice api */
+
+// For response from Robot-microservice api
 public class Robot {
     private Long rid;
     private String codename;
-    private String releaseDate; // work like @Column(name = "release_date")
+    private String releaseDate;
     private Double price;
     private Boolean status;
 

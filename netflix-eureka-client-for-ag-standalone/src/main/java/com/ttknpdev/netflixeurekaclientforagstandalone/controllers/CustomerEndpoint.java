@@ -1,5 +1,6 @@
 package com.ttknpdev.netflixeurekaclientforagstandalone.controllers;
 
+import com.ttknpdev.netflixeurekaclientforagstandalone.annotation.CommonRestAPI;
 import com.ttknpdev.netflixeurekaclientforagstandalone.entities.Customer;
 import com.ttknpdev.netflixeurekaclientforagstandalone.entities.Robot;
 import com.ttknpdev.netflixeurekaclientforagstandalone.services.CustomerResponseService;
@@ -10,16 +11,20 @@ import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
 
+/**
 @RestController
 @RequestMapping(value = CustomerEndpoint.BASE_PREFIX_PATH)
-// it is a good way , i don't need to set cross on base endpoint i set on this endpoint
-@CrossOrigin("http://localhost:4200") // allow cross origin
+// it is a good way , i don't need to set cross on base endpoint i set on this endpoint  // allow cross origin
+@CrossOrigin("http://localhost:4200")
+*/
+@CommonRestAPI(path = CustomerEndpoint.BASE_PREFIX_PATH,origins = "http://localhost:4200")
 public class CustomerEndpoint {
     // follow prefix
     protected static final String BASE_PREFIX_PATH = "/api/customer";
     // domain follow the name project on eureka server
     protected static final String ADDRESS = "http://CUSTOMERS-MICROSERVICE"; // work as http://localhost:8081/<your prefix path>
-    private CustomerResponseService customerResponseService;
+    private final CustomerResponseService customerResponseService;
+
     @Autowired
     public CustomerEndpoint(CustomerResponseService customerResponseService) {
         this.customerResponseService = customerResponseService;

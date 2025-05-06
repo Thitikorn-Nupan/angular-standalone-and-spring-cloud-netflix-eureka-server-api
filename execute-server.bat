@@ -1,0 +1,1 @@
+mvn spring-boot:run -f B:\practice-java-one-jetbrains\spring-boot-skills\lab_core_23.1\netflix-eureka-server-for-ag-standalone

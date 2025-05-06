@@ -14,9 +14,9 @@ import java.util.List;
 @Service
 public class RobotResponseService {
 
-    private RestTemplate restTemplate;
-    private LogBack logBack;
-    private HttpHeaders headers;
+    private final RestTemplate restTemplate;
+    private final LogBack logBack;
+    private final HttpHeaders headers;
     private HttpEntity entity;
 
     @Autowired
