@@ -10,16 +10,20 @@ import {EurekaClientService} from "./eureka-client.service";
 })
 export class CustomerService implements EntityRepo<Customer> {
 
-  private customersReplaySubject : ReplaySubject<Customer[]>;
-  private eurekaClientService: EurekaClientService;
+  private readonly customersReplaySubject : ReplaySubject<Customer[]>;
+  private readonly eurekaClientService: EurekaClientService;
 
   constructor(eurekaClientService: EurekaClientService) {
     this.eurekaClientService = eurekaClientService;
     this.customersReplaySubject = new ReplaySubject<Customer[]>();
-    this.loadCustomers()
-    console.log('CustomerService class is initial')
-
+    // this.loadCustomers()
+    // console.log('CustomerService class is initial')
   }
+
+  readsByAPI(): Observable<Customer[]> {
+    return this.eurekaClientService.retrieveCustomers()
+  }
+
 
   // load only once when class is initial
   private loadCustomers() {
@@ -27,6 +31,7 @@ export class CustomerService implements EntityRepo<Customer> {
     this.eurekaClientService.retrieveCustomers().subscribe(response => this.customersReplaySubject.next(response))
   }
 
+  // bad
   reads() : Observable<Customer[]> {
     return this.customersReplaySubject
   }

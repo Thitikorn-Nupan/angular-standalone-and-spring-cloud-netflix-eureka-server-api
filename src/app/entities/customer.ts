@@ -1,4 +1,5 @@
 export class Customer {
+
   private _cid : number
   private _fullname : string
   private _age : number

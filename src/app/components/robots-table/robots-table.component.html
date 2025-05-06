@@ -1,4 +1,4 @@
-<div class="container mt-4">
+<!--<div class="container mt-4">
  <h3 class="card-title mb-4">Robots Table (PORT 8082)</h3>
   <table class="table">
     <thead class="table-secondary">
@@ -15,9 +15,15 @@
       <th scope="row">{{ robot.rid }}</th>
       <td>{{ robot.codename }}</td>
       <td>{{ robot.releaseDate }}</td>
-      <td>{{ robot.price }}</td>
+      <td>{{ robot.price | currency : 'THB' }}</td>
       <td>{{ robot.status }}</td>
     </tr>
     </tbody>
   </table>
-</div>
+</div>-->
+
+<data-table
+  [titleTable]="'Robots Table (PORT 8082)'"
+  [headersColumn]="headersColumn"
+  [data]="robots">
+</data-table>

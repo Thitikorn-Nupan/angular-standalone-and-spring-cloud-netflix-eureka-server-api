@@ -9,9 +9,11 @@ import {environment} from "../../environments/environment";
   providedIn: 'root'
 })
 export class EurekaClientService {
-  private httpClient: HttpClient;
+
+  private readonly httpClient: HttpClient;
   private readonly baseEndpointCustomers = environment.baseEndpointCustomers
   private readonly baseEndpointRobots = environment.baseEndpointRobots
+
   constructor(httpClient: HttpClient) {
     this.httpClient = httpClient;
   }

@@ -1,4 +1,5 @@
 export class Robot {
+
   private _rid : number
   private _codename : string
   private _releaseDate : string

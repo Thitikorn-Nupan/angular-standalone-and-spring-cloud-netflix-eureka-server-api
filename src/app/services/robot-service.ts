@@ -9,23 +9,30 @@ import {EurekaClientService} from "./eureka-client.service";
 })
 export class RobotService implements EntityRepo<Robot> {
 
-  private eurekaClientService: EurekaClientService;
-  private robotsReplaySubject : ReplaySubject<Robot[]>;
+  private readonly eurekaClientService: EurekaClientService;
+  private readonly robotsReplaySubject : ReplaySubject<Robot[]>;
 
   constructor(eurekaClientService: EurekaClientService) {
     this.eurekaClientService = eurekaClientService;
     this.robotsReplaySubject = new ReplaySubject<Robot[]>();
-    this.loadRobots()
-    console.log('RobotService class is initial')
+    // this.loadRobots()
+    // console.log('RobotService class is initial')
   }
 
   private loadRobots() {
-    this.eurekaClientService.retrieveRobots().subscribe(
-      response =>
+    this.eurekaClientService.retrieveRobots().subscribe(response =>
         // add customers to customersReplaySubject for publish
         this.robotsReplaySubject.next(response)
     )
   }
+
+
+  readsByAPI(): Observable<Robot[]> {
+    return this.eurekaClientService.retrieveRobots()
+
+  }
+
+  // bad
   reads(): Observable<Robot[]> {
     return this.robotsReplaySubject.asObservable();
   }
