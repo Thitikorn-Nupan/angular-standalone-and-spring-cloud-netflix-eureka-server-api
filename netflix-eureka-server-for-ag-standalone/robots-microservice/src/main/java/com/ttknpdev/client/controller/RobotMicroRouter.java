@@ -1,20 +1,18 @@
 package com.ttknpdev.client.controller;
 
-
 import com.ttknpdev.client.entity.Robot;
 import com.ttknpdev.client.logging.LogBack;
 import com.ttknpdev.client.service.RobotService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
-
 import java.util.List;
 
 @RestController
 @RequestMapping(value = RobotMicroRouter.DEFAULT_PATH)
 public class RobotMicroRouter {
     protected static final String DEFAULT_PATH = "/api/robot";
-    private LogBack logBack;
-    private RobotService robotService;
+    private final RobotService robotService;
+    private final LogBack logBack;
 
     @Autowired
     public RobotMicroRouter(RobotService robotService) {

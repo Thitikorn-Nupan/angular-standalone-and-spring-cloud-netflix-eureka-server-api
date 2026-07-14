@@ -7,7 +7,6 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.*;
 import org.springframework.stereotype.Service;
 import org.springframework.web.client.RestTemplate;
-
 import java.util.Arrays;
 import java.util.List;
 
@@ -23,8 +22,7 @@ public class RobotResponseService {
     public RobotResponseService(RestTemplate restTemplate) {
         this.restTemplate = restTemplate;
         logBack = new LogBack(RobotResponseService.class);
-        // for send json on http body
-        headers = new HttpHeaders();
+        headers = new HttpHeaders(); // for send json on http body
     }
     public List<Robot> reads(String url) {
         logBack.log.debug("************ H2 DATABASE ************** you called by api {} it's for ResTemplate only", url);

@@ -1,11 +1,9 @@
 package com.ttknpdev.netflixeurekaclientforagstandalone.annotation;
 
-import com.ttknpdev.netflixeurekaclientforagstandalone.controllers.RobotEndpoint;
 import org.springframework.core.annotation.AliasFor;
 import org.springframework.web.bind.annotation.CrossOrigin;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
-
 import java.lang.annotation.ElementType;
 import java.lang.annotation.Retention;
 import java.lang.annotation.RetentionPolicy;

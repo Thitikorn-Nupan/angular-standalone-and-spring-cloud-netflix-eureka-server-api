@@ -1,6 +1,5 @@
 package com.ttknpdev.client.service;
 
-
 import java.util.List;
 
 public interface RobotService<T> {

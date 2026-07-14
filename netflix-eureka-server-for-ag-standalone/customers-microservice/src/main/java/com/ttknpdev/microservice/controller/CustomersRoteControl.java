@@ -8,7 +8,6 @@ import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 import com.ttknpdev.microservice.repository.ServiceRepository;
 import com.ttknpdev.microservice.service.CustomersService;
-
 import java.util.List;
 
 @RestController
@@ -44,7 +43,6 @@ public class CustomersRoteControl {
                 .status(HttpStatusCode.valueOf(202))
                 .body(customerRepository.findById(pk));
     }
-
 
     @PostMapping(value = "/create")
     private ResponseEntity<Boolean> create(@RequestBody Customer customer) {

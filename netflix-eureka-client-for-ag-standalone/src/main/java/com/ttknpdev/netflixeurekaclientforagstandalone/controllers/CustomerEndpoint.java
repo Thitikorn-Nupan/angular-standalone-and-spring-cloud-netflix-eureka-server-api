@@ -2,13 +2,11 @@ package com.ttknpdev.netflixeurekaclientforagstandalone.controllers;
 
 import com.ttknpdev.netflixeurekaclientforagstandalone.annotation.CommonRestAPI;
 import com.ttknpdev.netflixeurekaclientforagstandalone.entities.Customer;
-import com.ttknpdev.netflixeurekaclientforagstandalone.entities.Robot;
 import com.ttknpdev.netflixeurekaclientforagstandalone.services.CustomerResponseService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
-
 import java.util.List;
 
 /**

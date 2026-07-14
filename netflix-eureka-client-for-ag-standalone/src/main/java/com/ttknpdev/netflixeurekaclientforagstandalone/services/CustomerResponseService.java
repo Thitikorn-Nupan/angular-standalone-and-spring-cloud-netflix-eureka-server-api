@@ -1,14 +1,12 @@
 package com.ttknpdev.netflixeurekaclientforagstandalone.services;
 
 import com.ttknpdev.netflixeurekaclientforagstandalone.entities.Customer;
-import com.ttknpdev.netflixeurekaclientforagstandalone.entities.Robot;
 import com.ttknpdev.netflixeurekaclientforagstandalone.logging.LogBack;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpEntity;
 import org.springframework.http.HttpHeaders;
 import org.springframework.stereotype.Service;
 import org.springframework.web.client.RestTemplate;
-
 import java.util.Arrays;
 import java.util.List;
 
@@ -24,8 +22,7 @@ public class CustomerResponseService {
     public CustomerResponseService(RestTemplate restTemplate) {
         this.restTemplate = restTemplate;
         logBack = new LogBack(CustomerResponseService.class);
-        // for send json on http body
-        headers = new HttpHeaders();
+        headers = new HttpHeaders();  // for send json on http body
     }
 
     public List<Customer> reads(String url) {

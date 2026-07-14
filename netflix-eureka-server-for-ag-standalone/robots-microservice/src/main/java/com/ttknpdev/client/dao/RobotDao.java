@@ -5,12 +5,11 @@ import com.ttknpdev.client.repository.RobotRepository;
 import com.ttknpdev.client.service.RobotService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
-
 import java.util.List;
 
 @Service
 public class RobotDao implements RobotService<Robot> {
-    private RobotRepository robotRepository;
+    private final RobotRepository robotRepository;
     @Autowired
     public RobotDao(RobotRepository robotRepository) {
         this.robotRepository = robotRepository;
@@ -23,14 +22,14 @@ public class RobotDao implements RobotService<Robot> {
 
     @Override
     public Robot read(Long id) {
-        // if not exist it will throw error
-        return robotRepository.findById(id).orElseThrow();
+        return robotRepository.findById(id).orElseThrow(); // if not exist it will throw error
     }
 
     @Override
     public Robot create(Robot obj) {
         return robotRepository.save(obj);
     }
+
     // basic for any robot id did not exist i set to throw error
     @Override
     public Robot update(Robot obj, Long id) {
@@ -40,7 +39,7 @@ public class RobotDao implements RobotService<Robot> {
             robot.setReleaseDate(obj.getReleaseDate());
             robot.setStatus(obj.getStatus());
             return robotRepository.save(robot);
-        }).orElseThrow();
+        }).orElse(null);
     }
 
     @Override
