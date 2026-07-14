@@ -1,6 +1,6 @@
-import {EntityRepo} from "../repositories/entity-repo";
+import {EntityRepo} from "../repository/entity-repo";
 import {Robot} from "../entities/robot";
-import { Observable, ReplaySubject} from "rxjs";
+import {Observable, ReplaySubject} from "rxjs";
 import {Injectable} from "@angular/core";
 import {EurekaClientService} from "./eureka-client.service";
 
@@ -10,26 +10,21 @@ import {EurekaClientService} from "./eureka-client.service";
 export class RobotService implements EntityRepo<Robot> {
 
   private readonly eurekaClientService: EurekaClientService;
-  private readonly robotsReplaySubject : ReplaySubject<Robot[]>;
+  private readonly robotsReplaySubject: ReplaySubject<Robot[]>;
 
   constructor(eurekaClientService: EurekaClientService) {
     this.eurekaClientService = eurekaClientService;
     this.robotsReplaySubject = new ReplaySubject<Robot[]>();
-    // this.loadRobots()
+    this.loadRobots()
     // console.log('RobotService class is initial')
   }
 
-  private loadRobots() {
-    this.eurekaClientService.retrieveRobots().subscribe(response =>
-        // add customers to customersReplaySubject for publish
-        this.robotsReplaySubject.next(response)
-    )
+  private loadRobots(): void {
+    this.eurekaClientService.retrieveRobots().subscribe(response => this.robotsReplaySubject.next(response))  // add customers to customersReplaySubject for publish
   }
-
 
   readsByAPI(): Observable<Robot[]> {
     return this.eurekaClientService.retrieveRobots()
-
   }
 
   // bad

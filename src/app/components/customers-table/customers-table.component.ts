@@ -2,22 +2,22 @@ import {Component, OnInit} from '@angular/core';
 import {Customer} from "../../entities/customer";
 import {CustomerService} from "../../services/customer-service";
 import {NgForOf} from "@angular/common";
-import {EntityRepo} from "../../repositories/entity-repo";
-import {TableComponent} from "../table/table.component";
+import {EntityRepo} from "../../repository/entity-repo";
+import {DataTableComponent} from "../data-table/data-table.component";
 
 @Component({
-  selector: 'app-customers-table',
+  selector: 'app-customers-data-table',
   standalone: true,
   imports: [
     NgForOf,
-    TableComponent
+    DataTableComponent
   ],
   templateUrl: './customers-table.component.html',
   styleUrl: './customers-table.component.css'
 })
 export class CustomersTableComponent implements OnInit {
 
-  private entityRepo: EntityRepo<Customer>;
+  private readonly entityRepo: EntityRepo<Customer>;
   protected customers!: Customer[] ;
   protected headersColumn : string[] = []
 
@@ -25,7 +25,7 @@ export class CustomersTableComponent implements OnInit {
     this.entityRepo = customerService;
   }
 
-  ngOnInit(): void {
+  async ngOnInit(): Promise<void> {
     this.entityRepo.readsByAPI().subscribe(response => {
       this.customers = response
       Object.keys(this.customers[0]).forEach(key => {

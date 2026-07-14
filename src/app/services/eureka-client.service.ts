@@ -11,8 +11,8 @@ import {environment} from "../../environments/environment";
 export class EurekaClientService {
 
   private readonly httpClient: HttpClient;
-  private readonly baseEndpointCustomers = environment.baseEndpointCustomers
-  private readonly baseEndpointRobots = environment.baseEndpointRobots
+  private readonly baseEndpointCustomers : string = environment.baseEndpointCustomers
+  private readonly baseEndpointRobots  : string = environment.baseEndpointRobots
 
   constructor(httpClient: HttpClient) {
     this.httpClient = httpClient;
@@ -22,14 +22,12 @@ export class EurekaClientService {
     return this.httpClient.get<Customer[]>(`${this.baseEndpointCustomers}/reads`)
   }
 
-  public retrieveRobots() : Observable<Robot[]> {
-    return this.httpClient.get<Robot[]>(`${this.baseEndpointRobots}/reads`)
-  }
-
   public retrieveCustomer(id : number) : Observable<Customer> {
     return this.httpClient.get<Customer>(`${this.baseEndpointCustomers}/read?pk=${id}`)
   }
 
-
+  public retrieveRobots() : Observable<Robot[]> {
+    return this.httpClient.get<Robot[]>(`${this.baseEndpointRobots}/reads`)
+  }
 
 }

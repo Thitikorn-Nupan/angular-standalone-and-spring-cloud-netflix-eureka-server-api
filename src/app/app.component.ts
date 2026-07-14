@@ -1,5 +1,5 @@
-import { Component } from '@angular/core';
-import { RouterOutlet } from '@angular/router';
+import {Component} from '@angular/core';
+import {RouterOutlet} from '@angular/router';
 import {MenuComponent} from "./components/menu/menu.component";
 
 @Component({
@@ -10,5 +10,4 @@ import {MenuComponent} from "./components/menu/menu.component";
   styleUrl: './app.component.css'
 })
 export class AppComponent {
-  title = 'lab-ag-standalone-for-netflix-eureka-client';
 }

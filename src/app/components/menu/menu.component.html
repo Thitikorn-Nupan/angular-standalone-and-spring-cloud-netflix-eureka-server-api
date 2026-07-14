@@ -5,9 +5,11 @@
       <ng-container *ngFor="let routerLink of routerLinks">
         <a class="nav-link fw-bold py-1 px-0 {{routerLink.select ? 'active' : ''}}" [routerLink]="routerLink.route" (click)="onNavClick(routerLink)">{{routerLink.label}}</a>
       </ng-container>
-      <!--<a class="nav-link fw-bold py-1 px-0 {{routerLinks[0].select ? 'active' : ''}}" [routerLink]="routerLinks[0].route" (click)="onNavClick(routerLinks[0])">{{routerLinks[0].label}}</a>
+      <!--
+      <a class="nav-link fw-bold py-1 px-0 {{routerLinks[0].select ? 'active' : ''}}" [routerLink]="routerLinks[0].route" (click)="onNavClick(routerLinks[0])">{{routerLinks[0].label}}</a>
       <a class="nav-link fw-bold py-1 px-0 {{routerLinks[1].select ? 'active' : ''}}" [routerLink]="routerLinks[1].route" (click)="onNavClick(routerLinks[1])">{{routerLinks[1].label}}</a>
-      <a class="nav-link fw-bold py-1 px-0 {{routerLinks[2].select ? 'active' : ''}}" [routerLink]="routerLinks[2].route" (click)="onNavClick(routerLinks[2])">{{routerLinks[2].label}}</a>-->
+      <a class="nav-link fw-bold py-1 px-0 {{routerLinks[2].select ? 'active' : ''}}" [routerLink]="routerLinks[2].route" (click)="onNavClick(routerLinks[2])">{{routerLinks[2].label}}</a>
+      -->
     </nav>
   </ng-container>
 </header>

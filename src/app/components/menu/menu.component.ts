@@ -14,10 +14,10 @@ import {NgForOf} from "@angular/common";
 })
 export class MenuComponent {
   protected title : string = 'Angular & Spring cloud eureka netflix'
-  protected routerLinks: {route:string,label:string,select:boolean} [] = [
-    {route : '/', label:'Home',select:true},
-    {route : '/customers-table', label:'Customers Table',select:false},
-    {route : '/robots-table', label:'Robots Table',select:false},
+  protected routerLinks: { route: string, label: string, select: boolean } [] = [
+    {route: '/', label: 'Home', select: true},
+    {route: '/customers-data-table', label: 'Customers Table', select: false},
+    {route: '/robots-data-table', label: 'Robots Table', select: false},
   ]
 
   protected onNavClick(routerLink: { route: string; label: string }) {
@@ -27,12 +27,12 @@ export class MenuComponent {
         this.routerLinks[1].select = false
         this.routerLinks[2].select = false
         break;
-      case '/customers-table' :
+      case '/customers-data-table' :
         this.routerLinks[0].select = false
         this.routerLinks[1].select = true
         this.routerLinks[2].select = false
         break;
-      case '/robots-table' :
+      case '/robots-data-table' :
         this.routerLinks[0].select = false
         this.routerLinks[1].select = false
         this.routerLinks[2].select = true

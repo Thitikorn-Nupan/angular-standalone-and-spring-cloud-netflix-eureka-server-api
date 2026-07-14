@@ -9,10 +9,10 @@ import {CurrencyPipe, NgForOf, NgIf} from "@angular/common";
     NgForOf,
     NgIf
   ],
-  templateUrl: './table.component.html',
-  styleUrl: './table.component.css'
+  templateUrl: './data-table.component.html',
+  styleUrl: './data-table.component.css'
 })
-export class TableComponent implements OnInit,AfterViewInit {
+export class DataTableComponent implements OnInit,AfterViewInit {
 
   @Input()
   public titleTable! : string
@@ -22,15 +22,9 @@ export class TableComponent implements OnInit,AfterViewInit {
   public headersColumn! : string[]
 
   ngOnInit(): void {
-    // get attributes name to headersColumn array
-    // Object.keys(this.data[0]).forEach(key => {
-    //   this.headersColumn.push(key.substring(1))
-    // })
   }
 
   ngAfterViewInit(): void {
-    // console.log(this.data)
   }
-
 
 }

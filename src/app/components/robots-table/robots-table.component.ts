@@ -2,17 +2,17 @@ import {AfterViewInit, Component, OnInit} from '@angular/core';
 import {Robot} from "../../entities/robot";
 import {RobotService} from "../../services/robot-service";
 import {CurrencyPipe, NgForOf, NgIf} from "@angular/common";
-import {EntityRepo} from "../../repositories/entity-repo";
+import {EntityRepo} from "../../repository/entity-repo";
 import {Customer} from "../../entities/customer";
-import {TableComponent} from "../table/table.component";
+import {DataTableComponent} from "../data-table/data-table.component";
 
 @Component({
-  selector: 'app-robots-table',
+  selector: 'app-robots-data-table',
   standalone: true,
   imports: [
     NgForOf,
     CurrencyPipe,
-    TableComponent,
+    DataTableComponent,
     NgIf
   ],
   templateUrl: './robots-table.component.html',
@@ -21,16 +21,16 @@ import {TableComponent} from "../table/table.component";
 export class RobotsTableComponent implements OnInit {
 
   protected robots!: Robot[]
-  private entityRepo: EntityRepo<Robot>;
-  private robotService: RobotService;
+  private readonly entityRepo: EntityRepo<Robot>;
+  // private readonly robotService: RobotService;
   protected headersColumn : string[] = []
 
   constructor(robotService: RobotService) {
     this.entityRepo = robotService;
-    this.robotService = robotService;
+    // this.robotService = robotService;
   }
 
-  async ngOnInit() {
+  async ngOnInit(): Promise<void>  {
     this.entityRepo.readsByAPI().subscribe((response: Robot[]) => {
       this.robots = response;
       Object.keys(this.robots[0]).forEach(key => {
@@ -38,6 +38,5 @@ export class RobotsTableComponent implements OnInit {
       })
     })
   }
-
 
 }
